@@ -1,10 +1,12 @@
 package com.store.catalog;
 
+import com.store.catalog.domain.Product;
 import com.store.catalog.repository.CatalogRepository;
 import com.store.catalog.repository.HotSaleRepository;
 import com.store.catalog.repository.ProductRepository;
 import javafx.scene.control.Pagination;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -54,9 +56,11 @@ public class PageController {
     }
     @GetMapping("/product/{id}")
     public String getProduct(@PathVariable Long id, Model mode) {
-        mode.addAttribute("p", productRepository.getOne(id));
-
-        mode.addAttribute("nav","product");
+        Product product = productRepository.getOne(id);
+        mode.addAttribute("p", product);
+        Page<Product> page = productRepository.findByCatalogIdAndBrandId(product.getCatalog().getId(),product.getBrand().getId(),PageRequest.of(0,10, Sort.Direction.DESC,"ordernum"));
+        mode.addAttribute("p",product);
+        mode.addAttribute("ps",page.getContent());
         return "productOne";
     }
     @GetMapping("/order")
