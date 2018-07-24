@@ -4,7 +4,6 @@ import com.store.catalog.domain.Product;
 import com.store.catalog.repository.CatalogRepository;
 import com.store.catalog.repository.HotSaleRepository;
 import com.store.catalog.repository.ProductRepository;
-import javafx.scene.control.Pagination;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by yzq on 2018/7/15.
