@@ -15,8 +15,8 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <!-- Generated: 2018-04-16 09:29:05 +0200 -->
-    <title>成都批发网  食品批发、超市供货,网上食品批发首选，质量保证-food028做最棒的批发平台</title>
-    <meta name="description" content="food028-专业的批发平台,产品包括休闲零食、粮油调味、糖果/巧克力、酒饮冲调、地方特产、日用百货等数万种商品直销,便捷，诚信的服务,为您提供愉悦的网上食品批发体验!"/>
+    <title th:text="${p.name}">成都批发网  食品批发、超市供货,网上食品批发首选，质量保证-food028做最棒的批发平台</title>
+    <meta name="description" th:content="${p.name}"/>
     <meta name="author" content="94192448@qq.com"/>
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/fonts-googleapis.css">
@@ -58,16 +58,16 @@
 
                       <div class="card">
                         <div class="card-body">
-                          <a th:href="'/product/'+${p.id}">
-                            <div class="mb-4 text-center">
+                          <a>
+                            <div class="mb-4" th:text="'条码 : '+${p.code}">asd
                             </div>
                           </a>
-                          <div class="card-subtitle" th:text="${p.wholeNum}+${p.unit.name}+'/件'">
+                          <div class="card-subtitle" th:text="'规格:'+${p.wholeNum}+${p.unit.name}+'/件'">
                             Apple
                           </div>
                           <div class="mt-5 d-flex align-items-center">
                             <div class="product-price">
-                              <strong th:text="'￥'+${p.wholePrice}">¥309元/件</strong>
+                              <strong th:text="'价格:￥'+${p.wholePrice}">¥309元/件</strong>
                             </div>
                             <div class="ml-auto">
                               <a href="javascript:void(0)" class="btn btn-primary"><i class="fe fe-plus"></i> 购买</a>
@@ -80,8 +80,8 @@
                     <div class="d-flex align-items-center pt-5 mt-auto">
                       <div class="avatar avatar-md mr-3" style="background-image: url(/assets/images/default/index-ad-1.png)"></div>
                       <div>
-                        <a href="#" class="text-default">Rose Bradley</a>
-                        <small class="d-block text-muted">3 days ago</small>
+                        <a href="#" class="text-default">成都食品</a>
+                        <small class="d-block text-muted">❤</small>
                       </div>
                       <div class="ml-auto text-muted">
                         <a href="javascript:void(0)" class="icon d-none d-md-inline-block ml-3"><i class="fe fe-heart mr-1"></i></a>
