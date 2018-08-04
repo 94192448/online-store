@@ -66,7 +66,22 @@
                     </tr>
                   </tbody></table>
                 </div>
+                <div class="row">
+                  <div class="col-lg-7"></div>
+                  <div class="col-lg-5">
+                    <div class="selectgroup selectgroup-pills pull-right">
+                      <label class="selectgroup-item">
+                        <input type="checkbox" name="value" value="HTML" class="selectgroup-input">
+                        <span class="selectgroup-button"><a th:href="'/product?page='+${page-1}">上一页</a></span>
+                      </label>
+                      <label class="selectgroup-item">
+                        <input type="checkbox" name="value" value="HTML" class="selectgroup-input">
+                        <span class="selectgroup-button"><a th:href="'/product?page='+${page+1}+'&category='+${category.id}">下一页</a></span>
+                      </label>
+                    </div>
+                  </div>
               </div>
+                </div>
               <div class="col-lg-3">
                 <div class="row">
 

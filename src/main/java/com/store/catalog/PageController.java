@@ -42,10 +42,16 @@ public class PageController {
     }
     @GetMapping("/product")
     public String product(Model mode, HttpServletRequest request) {
-        Pageable pageable = PageRequest.of(0,10, Sort.Direction.DESC,"lastModified");
+        int page = StringUtils.isEmpty(request.getParameter("page"))?0:Integer.parseInt(request.getParameter("page"));
+        if (page<1){
+            page=1;
+        }
+        Pageable pageable = PageRequest.of(page-1,10, Sort.Direction.DESC,"lastModified");
         Long category = StringUtils.isEmpty(request.getParameter("category"))?1:Long.valueOf(request.getParameter("category"));
 
         mode.addAttribute("tableList", productRepository.findByCatalogId(category,pageable).getContent());
+        mode.addAttribute("category",catalogRepository.getOne(category));
+        mode.addAttribute("page",page);
         mode.addAttribute("label",catalogRepository.findAll());
 
         mode.addAttribute("nav","product");
